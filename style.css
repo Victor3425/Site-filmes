@@ -1,4 +1,3 @@
-/* RESET */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -6,18 +5,12 @@ body {
   color: #e2e8f0;
 }
 
-/* SCROLL SUAVE */
-html {
-  scroll-behavior: smooth;
-}
-
-/* 🔝 BARRA DE PROGRESSO */
+/* BARRA */
 .progress-wrapper {
   position: sticky;
   top: 0;
   background: #020617;
   padding: 10px;
-  z-index: 1000;
 }
 
 .progress-container {
@@ -31,29 +24,14 @@ html {
 .progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #22c55e, #4ade80);
-  transition: width 0.3s ease;
+  background: #22c55e;
 }
 
-#progress-text {
-  text-align: center;
-  font-size: 13px;
-  margin-top: 5px;
-}
-
-/* CONTAINER */
+/* LAYOUT */
 .container {
   padding: 15px;
-  max-width: 1200px;
-  margin: auto;
 }
 
-/* TITULOS */
-h1, h2 {
-  text-align: center;
-}
-
-/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -66,62 +44,44 @@ h1, h2 {
   border-radius: 12px;
   overflow: hidden;
   padding-bottom: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-  min-height: 100%;
-  transition: box-shadow 0.2s ease, border 0.2s ease;
+  border: 2px solid transparent;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* 🚫 REMOVIDO QUALQUER SCALE */
-
-/* 🎬 CARD ATIVO */
+/* 🔥 ATIVO (SEM SCALE) */
 .card.active {
   border: 2px solid #22c55e;
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
 }
 
-/* IMAGEM */
+/* IMG */
 .card img {
   width: 100%;
   aspect-ratio: 2/3;
   object-fit: cover;
 }
 
-/* IMAGEM MAIS VIVA */
-.card.active img {
-  filter: brightness(1.1);
-}
-
 /* TITULO */
 .card h3 {
-  font-size: 14px;
   text-align: center;
-  margin: 10px;
+  font-size: 14px;
 }
 
-/* TEMPORADAS */
+/* BOTÕES */
 .seasons {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
 }
 
-/* BOTÕES */
 .season {
-  background: transparent;
   border: 1px solid #334155;
+  background: transparent;
   color: #cbd5f5;
-  padding: 8px 12px;
+  padding: 6px 10px;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 13px;
-  transition: all 0.2s ease;
-}
-
-/* HOVER */
-.season:hover {
-  border-color: #22c55e;
-  color: #22c55e;
 }
 
 /* ATIVO */
@@ -129,44 +89,10 @@ h1, h2 {
   background: #22c55e;
   color: #022c22;
   border: none;
-  font-weight: bold;
-}
-
-/* CLIQUE */
-.season:active {
-  transform: scale(0.95);
-}
-
-/* CENTRALIZAR */
-.card button.season {
-  display: block;
-  margin: 10px auto;
 }
 
 /* MOBILE */
 @media (max-width: 600px) {
-
-  h1 {
-    font-size: 20px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  .card h3 {
-    font-size: 13px;
-  }
-
-  .season {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  .progress-wrapper {
-    padding: 8px;
-  }
-
   .grid {
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
