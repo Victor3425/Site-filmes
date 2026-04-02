@@ -9,10 +9,17 @@ const saved = JSON.parse(localStorage.getItem("progress")) || [];
 buttons.forEach((btn, index) => {
   if (saved[index]) {
     btn.classList.add("active");
+
+    const card = btn.closest(".card");
+    card.classList.add("active");
   }
 
   btn.addEventListener("click", () => {
     btn.classList.toggle("active");
+
+    const card = btn.closest(".card");
+    card.classList.toggle("active");
+
     saveProgress();
     updateProgress();
   });
