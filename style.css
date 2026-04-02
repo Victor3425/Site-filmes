@@ -69,24 +69,27 @@ h1, h2 {
   padding-bottom: 10px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   min-height: 100%;
+  will-change: transform;
 }
 
-/* HOVER */
-.card:hover {
-  transform: scale(1.08);
-  z-index: 2;
+/* ✅ HOVER SOMENTE DESKTOP */
+@media (hover: hover) {
+  .card:hover {
+    transform: scale(1.08);
+    z-index: 2;
+  }
 }
 
-/* 🎬 CARD ATIVO */
+/* 🎬 CARD ATIVO (SEM BUG) */
 .card.active {
-  transform: scale(1.05);
+  transform: scale(1.04);
   border: 2px solid #22c55e;
 }
 
-/* 📱 MOBILE - efeito mais suave */
+/* 📱 MOBILE MAIS SUAVE */
 @media (max-width: 600px) {
   .card.active {
-    transform: scale(1.03);
+    transform: scale(1.02);
   }
 }
 
