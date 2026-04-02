@@ -5,22 +5,36 @@ const progressText = document.getElementById("progress-text");
 // carregar estado salvo
 const saved = JSON.parse(localStorage.getItem("progress")) || [];
 
+// evitar múltiplos cliques rápidos (mobile fix)
+let isClicking = false;
+
 // aplicar estado salvo
 buttons.forEach((btn, index) => {
   if (saved[index]) {
     btn.classList.add("active");
   }
 
-  btn.addEventListener("click", () => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // 🔥 trava clique duplicado
+    if (isClicking) return;
+    isClicking = true;
+
     btn.classList.toggle("active");
 
-    updateCardState(btn); // 🔥 CORREÇÃO AQUI
+    updateCardState(btn);
     saveProgress();
     updateProgress();
+
+    // libera depois de 150ms
+    setTimeout(() => {
+      isClicking = false;
+    }, 150);
   });
 });
 
-// 🔥 FUNÇÃO CORRETA PARA CONTROLAR CARD
+// controla estado do card corretamente
 function updateCardState(btn) {
   const card = btn.closest(".card");
   const activeButtons = card.querySelectorAll(".season.active");
@@ -54,7 +68,7 @@ function updateProgress() {
   progressText.innerText = percent + "% concluído";
 }
 
-// 🔥 GARANTIR ESTADO CORRETO AO CARREGAR
+// aplicar estado inicial correto
 buttons.forEach(btn => updateCardState(btn));
 
 // iniciar
