@@ -65,31 +65,60 @@ h1, h2 {
   background: #0f172a;
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.25s ease;
   padding-bottom: 10px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   min-height: 100%;
-  will-change: transform;
 }
 
-/* ✅ HOVER SOMENTE DESKTOP */
+/* ✅ HOVER só desktop */
 @media (hover: hover) {
   .card:hover {
-    transform: scale(1.08);
+    transform: scale(1.05);
     z-index: 2;
   }
 }
 
-/* 🎬 CARD ATIVO (SEM BUG) */
-.card.active {
-  transform: scale(1.04);
-  border: 2px solid #22c55e;
+/* 🎬 ATIVO (DESKTOP) */
+@media (hover: hover) {
+  .card.active {
+    transform: scale(1.03);
+    border: 2px solid #22c55e;
+  }
 }
 
-/* 📱 MOBILE MAIS SUAVE */
+/* 📱 MOBILE (SEM SCALE — BUG RESOLVIDO) */
 @media (max-width: 600px) {
+
   .card.active {
-    transform: scale(1.02);
+    transform: none; /* 🔥 remove crescimento */
+    border: 2px solid #22c55e;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .card h3 {
+    font-size: 13px;
+  }
+
+  .season {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .progress-wrapper {
+    padding: 8px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   }
 }
 
@@ -129,7 +158,7 @@ h1, h2 {
   border-radius: 20px;
   cursor: pointer;
   font-size: 13px;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 /* HOVER BOTÃO */
@@ -155,33 +184,4 @@ h1, h2 {
 .card button.season {
   display: block;
   margin: 10px auto;
-}
-
-/* 📱 MOBILE */
-@media (max-width: 600px) {
-
-  h1 {
-    font-size: 20px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  .card h3 {
-    font-size: 13px;
-  }
-
-  .season {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  .progress-wrapper {
-    padding: 8px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
 }
