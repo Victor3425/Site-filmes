@@ -71,17 +71,35 @@ h1, h2 {
   min-height: 100%;
 }
 
-/* HOVER ESTILO NETFLIX */
+/* HOVER */
 .card:hover {
   transform: scale(1.08);
   z-index: 2;
 }
 
-/* IMAGEM RESPONSIVA */
+/* 🎬 CARD ATIVO */
+.card.active {
+  transform: scale(1.05);
+  border: 2px solid #22c55e;
+}
+
+/* 📱 MOBILE - efeito mais suave */
+@media (max-width: 600px) {
+  .card.active {
+    transform: scale(1.03);
+  }
+}
+
+/* IMAGEM */
 .card img {
   width: 100%;
   aspect-ratio: 2/3;
   object-fit: cover;
+}
+
+/* IMAGEM MAIS VIVA */
+.card.active img {
+  filter: brightness(1.1);
 }
 
 /* TITULO */
@@ -125,12 +143,12 @@ h1, h2 {
   font-weight: bold;
 }
 
-/* CLIQUE REAL */
+/* CLIQUE */
 .season:active {
   transform: scale(0.95);
 }
 
-/* CENTRALIZAR BOTÃO (FILMES/ANIMAÇÕES) */
+/* CENTRALIZAR BOTÃO */
 .card button.season {
   display: block;
   margin: 10px auto;
