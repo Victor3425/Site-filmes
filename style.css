@@ -68,27 +68,30 @@ h1, h2 {
   transition: all 0.3s ease;
   padding-bottom: 10px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  min-height: 100%;
 }
 
+/* HOVER ESTILO NETFLIX */
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
+  z-index: 2;
 }
 
-/* IMAGEM RESPONSIVA (PADRÃO POSTER) */
+/* IMAGEM RESPONSIVA */
 .card img {
   width: 100%;
   aspect-ratio: 2/3;
   object-fit: cover;
 }
 
-/* TITULO DO CARD */
+/* TITULO */
 .card h3 {
   font-size: 14px;
   text-align: center;
   margin: 10px;
 }
 
-/* TEMPORADAS / BOTÕES */
+/* TEMPORADAS */
 .seasons {
   display: flex;
   justify-content: center;
@@ -96,7 +99,7 @@ h1, h2 {
   gap: 6px;
 }
 
-/* BOTÃO */
+/* BOTÕES */
 .season {
   background: transparent;
   border: 1px solid #334155;
@@ -108,7 +111,7 @@ h1, h2 {
   transition: all 0.25s ease;
 }
 
-/* HOVER */
+/* HOVER BOTÃO */
 .season:hover {
   border-color: #22c55e;
   color: #22c55e;
@@ -122,13 +125,18 @@ h1, h2 {
   font-weight: bold;
 }
 
-/* CENTRALIZAR BOTÃO EM FILMES */
+/* CLIQUE REAL */
+.season:active {
+  transform: scale(0.95);
+}
+
+/* CENTRALIZAR BOTÃO (FILMES/ANIMAÇÕES) */
 .card button.season {
   display: block;
   margin: 10px auto;
 }
 
-/* 📱 MOBILE AJUSTES */
+/* 📱 MOBILE */
 @media (max-width: 600px) {
 
   h1 {
