@@ -53,7 +53,7 @@ h1, h2 {
   text-align: center;
 }
 
-/* GRID RESPONSIVO */
+/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -65,61 +65,18 @@ h1, h2 {
   background: #0f172a;
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.25s ease;
   padding-bottom: 10px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.3);
   min-height: 100%;
+  transition: box-shadow 0.2s ease, border 0.2s ease;
 }
 
-/* ✅ HOVER só desktop */
-@media (hover: hover) {
-  .card:hover {
-    transform: scale(1.05);
-    z-index: 2;
-  }
-}
+/* 🚫 REMOVIDO QUALQUER SCALE */
 
-/* 🎬 ATIVO (DESKTOP) */
-@media (hover: hover) {
-  .card.active {
-    transform: scale(1.03);
-    border: 2px solid #22c55e;
-  }
-}
-
-/* 📱 MOBILE (SEM SCALE — BUG RESOLVIDO) */
-@media (max-width: 600px) {
-
-  .card.active {
-    transform: none; /* 🔥 remove crescimento */
-    border: 2px solid #22c55e;
-    box-shadow: 0 0 15px rgba(34, 197, 94, 0.6);
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  h2 {
-    font-size: 18px;
-  }
-
-  .card h3 {
-    font-size: 13px;
-  }
-
-  .season {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  .progress-wrapper {
-    padding: 8px;
-  }
-
-  .grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
+/* 🎬 CARD ATIVO */
+.card.active {
+  border: 2px solid #22c55e;
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.6);
 }
 
 /* IMAGEM */
@@ -161,7 +118,7 @@ h1, h2 {
   transition: all 0.2s ease;
 }
 
-/* HOVER BOTÃO */
+/* HOVER */
 .season:hover {
   border-color: #22c55e;
   color: #22c55e;
@@ -180,8 +137,37 @@ h1, h2 {
   transform: scale(0.95);
 }
 
-/* CENTRALIZAR BOTÃO */
+/* CENTRALIZAR */
 .card button.season {
   display: block;
   margin: 10px auto;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .card h3 {
+    font-size: 13px;
+  }
+
+  .season {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .progress-wrapper {
+    padding: 8px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
 }
