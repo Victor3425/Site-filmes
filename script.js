@@ -9,21 +9,28 @@ const saved = JSON.parse(localStorage.getItem("progress")) || [];
 buttons.forEach((btn, index) => {
   if (saved[index]) {
     btn.classList.add("active");
-
-    const card = btn.closest(".card");
-    card.classList.add("active");
   }
 
   btn.addEventListener("click", () => {
     btn.classList.toggle("active");
 
-    const card = btn.closest(".card");
-    card.classList.toggle("active");
-
+    updateCardState(btn); // 🔥 CORREÇÃO AQUI
     saveProgress();
     updateProgress();
   });
 });
+
+// 🔥 FUNÇÃO CORRETA PARA CONTROLAR CARD
+function updateCardState(btn) {
+  const card = btn.closest(".card");
+  const activeButtons = card.querySelectorAll(".season.active");
+
+  if (activeButtons.length > 0) {
+    card.classList.add("active");
+  } else {
+    card.classList.remove("active");
+  }
+}
 
 // salvar progresso
 function saveProgress() {
@@ -46,6 +53,9 @@ function updateProgress() {
   progressBar.style.width = percent + "%";
   progressText.innerText = percent + "% concluído";
 }
+
+// 🔥 GARANTIR ESTADO CORRETO AO CARREGAR
+buttons.forEach(btn => updateCardState(btn));
 
 // iniciar
 updateProgress();
